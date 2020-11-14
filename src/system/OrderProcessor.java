@@ -28,11 +28,21 @@ final class OrderProcessor implements Components.OrderProcessor {
 
     @Override
     public long vat(long grossValue) {
-        return 0;
+        return Math.round(grossValue - (grossValue / 1.19));
     }
 
     @Override
     public long vat(long grossValue, int rateIndex) {
+        try {
+            if (rateIndex == 1) {
+                return Math.round(grossValue - (grossValue / 1.19));
+            } else if (rateIndex == 2) {
+                return Math.round(grossValue - (grossValue / 1.07));
+            }
+            else { throw new IndexOutOfBoundsException("rateIndex can only be 1 (19%) or 2 (7%)!"); }
+        } catch(IndexOutOfBoundsException e) {
+            e.getMessage();
+        }
         return 0;
     }
 }

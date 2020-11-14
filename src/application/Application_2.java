@@ -74,6 +74,6 @@ public final class Application_2 {
         o1235.addItem(dataFactory.createOrderItem(aTeller.getDescription(),aTeller, 4));
 
         List<Order> orders = new ArrayList<Order>( List.of( o5234, o8592, o3563, o6135, o1234, o1235) );
-        outputProcessor.printOrders(orders,false);
+        outputProcessor.printOrders(orders,true);
     }
 }
